@@ -1,6 +1,6 @@
 {
   "name": "whispers-in-the-void",
-  "version": "0.1.0",
+  "version": "2.0.0-beta.1",
   "description": "Procedurally generated 3D space trading/combat/exploration game",
   "main": "./out/main/index.js",
   "author": "",
@@ -32,14 +32,18 @@
       "out/**/*"
     ],
     "mac": {
-      "target": "dmg"
+      "target": [{ "target": "dmg", "arch": ["x64", "arm64"] }],
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
     },
     "win": {
-      "target": "nsis"
+      "target": [{ "target": "nsis", "arch": ["x64", "arm64"] }]
     },
     "linux": {
-      "target": "AppImage"
-    }
+      "target": [{ "target": "AppImage", "arch": ["x64", "arm64"] }]
+    },
+    "afterSign": "scripts/afterSignAdHoc.cjs"
   },
   "allowScripts": {
     "electron@32.3.3": true,
